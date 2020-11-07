@@ -1,0 +1,17 @@
+const express = require("express");
+const app = express()
+const cors = require("cors");
+
+// middleware
+app.use(express.json()) //req.body
+app.use(cors())
+
+const portNumber = 5000;
+
+// ROUTES
+// register and login routes
+app.use("/auth", require("./routes/jwtAuth"));
+
+app.listen(5000, () => {
+    console.log(`server is on port ${portNumber}`)
+});
